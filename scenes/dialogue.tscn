@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdgevk366ypq6"]
+
+[ext_resource type="Texture2D" uid="uid://dhooenj4mmd85" path="res://Assets/Testing Purpose Assets/New folder/dialogue_background.jpg" id="1_ffeas"]
+[ext_resource type="Script" path="res://dialogue/dialogue_scripts/walking_test_npc_dialogue.gd" id="1_kmh6i"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kmh6i")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 0.058
+offset_left = -16.0
+offset_top = -12.0
+offset_right = 30.0
+offset_bottom = 3.68
+texture = ExtResource("1_ffeas")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 303.0
+offset_bottom = 40.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.411765, 0.411765, 0.411765, 1)
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Name:"
+fit_content = true
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 408.0
+offset_bottom = 106.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.258824, 0.258824, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Chatting..........................................................................................................."
+fit_content = true

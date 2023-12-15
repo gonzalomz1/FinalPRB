@@ -1,0 +1,227 @@
+[gd_scene load_steps=16 format=3 uid="uid://2dchusvl280i"]
+
+[ext_resource type="Texture2D" uid="uid://q2335vgf0t5" path="res://Assets/Testing Purpose Assets/Character_006.png" id="1_j3e1f"]
+[ext_resource type="Script" path="res://scripts/npc_moving.gd" id="2_xrwga"]
+[ext_resource type="PackedScene" uid="uid://cdgevk366ypq6" path="res://scenes/dialogue.tscn" id="3_ks35j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x451y"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_cu5ew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sbmtk"]
+resource_name = "idle_down"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kv1pc"]
+resource_name = "idle_left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_xm6nn"]
+resource_name = "idle_right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_a6vsm"]
+resource_name = "idle_up"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_rf0uh"]
+resource_name = "walk_down"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_k04tu"]
+resource_name = "walk_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 6]
+}
+
+[sub_resource type="Animation" id="Animation_gjhmy"]
+resource_name = "walk_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_sjdb0"]
+resource_name = "walk_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u12e0"]
+_data = {
+"RESET": SubResource("Animation_cu5ew"),
+"idle_down": SubResource("Animation_sbmtk"),
+"idle_left": SubResource("Animation_kv1pc"),
+"idle_right": SubResource("Animation_xm6nn"),
+"idle_up": SubResource("Animation_a6vsm"),
+"walk_down": SubResource("Animation_rf0uh"),
+"walk_left": SubResource("Animation_k04tu"),
+"walk_right": SubResource("Animation_gjhmy"),
+"walk_up": SubResource("Animation_sjdb0")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjd0q"]
+radius = 18.0
+
+[node name="Npc_moving" type="CharacterBody2D"]
+script = ExtResource("2_xrwga")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 3)
+texture = ExtResource("1_j3e1f")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_x451y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u12e0")
+}
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+position = Vector2(8, 8)
+shape = SubResource("CircleShape2D_gjd0q")
+debug_color = Color(0.447059, 0.572549, 0.466667, 0.419608)
+
+[node name="up" type="RayCast2D" parent="chat_detection_area/CollisionShape2D"]
+target_position = Vector2(0, -18)
+collision_mask = 2
+
+[node name="down" type="RayCast2D" parent="chat_detection_area/CollisionShape2D"]
+target_position = Vector2(0, 18)
+collision_mask = 2
+
+[node name="right" type="RayCast2D" parent="chat_detection_area/CollisionShape2D"]
+target_position = Vector2(18, 0)
+collision_mask = 2
+
+[node name="left" type="RayCast2D" parent="chat_detection_area/CollisionShape2D"]
+target_position = Vector2(-18, 0)
+collision_mask = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Dialogue" parent="." instance=ExtResource("3_ks35j")]
+offset_top = -12.0
+offset_bottom = 28.0
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
